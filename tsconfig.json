@@ -9,11 +9,15 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    // User's specified relaxed type-checking options
     "noImplicitAny": false,
     "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
     "skipLibCheck": true,
     "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
+    // Generally good practice for shared config
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

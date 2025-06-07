@@ -1,22 +1,24 @@
+// frontend/tsconfig.node.json
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.vite/tsconfig.node.tsbuildinfo",
+    "module": "commonjs", // Essential for Node.js backend
+    "target": "es2022",
+    "lib": ["es2022"],
+    "outDir": "./dist/backend",
+    "rootDir": "./",
+    "types": ["node"], // Include Node.js type definitions
+    "moduleResolution": "node"
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "backend/**/*.ts",
+    "backend/**/*.d.ts",
+    "vite.config.ts" // <--- ENSURE THIS LINE IS PRESENT AND CORRECT
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
